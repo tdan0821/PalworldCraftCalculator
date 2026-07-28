@@ -518,4 +518,34 @@ pre {
 
     border-radius:10px;
 }
+
+/* ================================
+   左右固定広告
+================================ */
+
+.side-ad {
+    position: fixed;
+    top: 120px;
+
+    width: 180px;
+    min-height: 600px;
+
+    z-index: 10;
+}
+
+.left-ad {
+    left: 20px;
+}
+
+.right-ad {
+    right: 20px;
+}
+
+/* 画面幅が狭いときは広告を消す */
+@media (max-width: 1500px) {
+    .side-ad {
+        display: none;
+    }
+}
+
 }
