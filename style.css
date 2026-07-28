@@ -1,0 +1,521 @@
+/*
+========================================================
+整理版CSS
+- UI・見た目・機能は変更なし
+- セクションごとに役割を明確化
+- プロパティの並びを整理
+========================================================
+*/
+
+/* ===== ページ全体の基本設定 ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #1d1f21;
+    color: white;
+    font-family: "Meiryo", sans-serif;
+}
+
+/* アプリの横幅と中央配置 */
+.container {
+    width: 1100px;
+    max-width: 95%;
+    margin: 30px auto;
+}
+
+h1 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 各機能を囲むカード */
+.card {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #2d2f33;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* クラフト対象の入力行 */
+.craftRow {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.craftRow input[type="text"] {
+    flex: 1;
+}
+
+.craftRow input[type="number"] {
+    width: 80px;
+}
+
+input {
+    padding: 8px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 18px;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.primary,
+.success,
+.delete {
+    color: white;
+}
+
+.primary {
+    background: #2196f3;
+}
+
+.success {
+    background: #4caf50;
+}
+
+.delete {
+    width: 40px;
+    background: #f44336;
+}
+
+.small {
+    color: #bbb;
+    font-size: 13px;
+}
+
+pre {
+    margin: 0;
+    font-family: Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* アイテム一覧の調整 */
+.itemGroupHeader {
+    position: sticky;
+    top: 0;
+
+    padding: 6px 10px;
+
+    background: #3a3d42;
+    color: #7fc8ff;
+
+    font-weight: bold;
+
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+/* 検索欄の調整 */
+
+.itemSearchArea {
+    margin: 15px 0 20px;
+}
+
+#itemFilter {
+    width: 100%;
+}
+
+#itemListView {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.itemSearchArea {
+    margin-bottom: 15px;
+}
+
+.itemListContainer {
+    height: 320px;
+    overflow-y: auto;
+    border-top: 1px solid #444;
+}
+
+/* 所持素材・計算結果で共通の4列レイアウト */
+.materialRow,
+.materialHeader {
+    display: grid;
+    grid-template-columns: 1fr 80px 80px 80px;
+    gap: 10px;
+}
+
+.materialRow {
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+}
+
+.materialHeader {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    border-bottom: 2px solid #666;
+}
+
+/* クラフトツリー */
+#treeResult {
+    font-size: 15px;
+}
+
+.treeNode {
+    margin-left: 18px;
+}
+
+.treeNode>summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    margin: 2px 0;
+    cursor: pointer;
+    list-style: none;
+    background: #36393f;
+    border-radius: 6px;
+}
+
+.treeNode>summary::-webkit-details-marker {
+    display: none;
+}
+
+.treeNode>summary::before {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    color: #aaa;
+    content: "▶";
+    transition: transform 0.15s;
+    transform-origin: center;
+}
+
+.treeNode[open]>summary::before {
+    transform: rotate(90deg);
+}
+
+.treeChildren {
+    padding-left: 14px;
+    margin-left: 18px;
+    padding-bottom: 5px;
+    border-left: 1px solid #555;
+}
+
+.treeLeaf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 10px 5px 14px;
+    margin-left: 36px;
+
+    border-left: 1px solid #555;
+}
+
+.treeLeaf>summary::before {
+    content: "";
+}
+
+.treeArrow {
+    width: 22px;
+    flex-shrink: 0;
+}
+
+.treeName {
+    flex: 1;
+}
+
+.treeAmount {
+    min-width: 70px;
+    color: #7cfc90;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* レシピ検索とアイテム一覧 */
+#recipeSearch {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#recipeResult h3 {
+    margin: 10px 0;
+}
+
+#recipeResult ul {
+    padding-left: 20px;
+}
+
+#recipeResult li {
+    padding: 4px 0;
+}
+
+#itemFilter {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.itemEntry {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+}
+
+.itemEntry:hover {
+    background: #3b3f46;
+}
+
+.recipeSetting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.recipeSetting label {
+    font-weight: 600;
+}
+
+.recipeSetting select {
+    width: 220px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #2b2b2b;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* クラフトルートの切り替え */
+.recipe-setting {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.recipe-setting-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.recipe-option {
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   タブレット対応
+========================================== */
+@media (max-width: 900px) {
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 15px auto;
+        padding: 0 12px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .itemListContainer {
+        height: 260px;
+    }
+
+    .treeAmount {
+        min-width: 60px;
+    }
+}
+
+/* ==========================================
+   スマホ対応
+========================================== */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 8px;
+    }
+
+    .card {
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    /* ---------- クラフト入力 ---------- */
+
+    .craftRow {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .craftRow input[type="text"],
+    .craftRow input[type="number"] {
+        width: 100%;
+    }
+
+    .delete,
+    .success,
+    .primary,
+    button {
+        width: 100%;
+    }
+
+    /* ---------- アイテム一覧 ---------- */
+
+    .itemListContainer {
+        height: 220px;
+    }
+
+    .itemEntry {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .itemGroupHeader {
+        font-size: 15px;
+    }
+
+    /* ---------- 所持素材・結果 ---------- */
+
+    .materialHeader {
+        display: none;
+    }
+
+    .materialRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 10px;
+        margin-bottom: 8px;
+
+        border: 1px solid #444;
+        border-radius: 6px;
+    }
+
+    .materialRow>div {
+        width: 48%;
+    }
+
+    .materialRow>div:first-child {
+        width: 100%;
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    /* ---------- ツリー ---------- */
+
+    .treeNode>summary,
+    .treeLeaf {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .treeChildren {
+        margin-left: 4px;
+        padding-left: 10px;
+    }
+
+    .treeLeaf {
+        margin-left: 22px;
+    }
+
+    .treeAmount {
+        min-width: 50px;
+        font-size: 13px;
+    }
+
+    /* ---------- レシピ選択 ---------- */
+
+    .recipe-setting {
+        padding: 10px;
+    }
+
+    .recipe-option {
+        margin-left: 0;
+        padding: 4px 0;
+    }
+
+    .recipe-option input {
+        transform: scale(1.2);
+        margin-right: 8px;
+    }
+
+    /* ---------- 入力欄 ---------- */
+
+    input {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+/* レシピ除外機能 */
+
+    .excludeRow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 6px 0;
+    }
+
+    .excludeRow label {
+        cursor: pointer;
+    }
+
+    .excludedTree > summary{
+    opacity:.6;
+    background:#444;
+}
+
+.excludedBadge{
+
+    display:inline-block;
+
+    margin-left:8px;
+
+    padding:2px 6px;
+
+    font-size:12px;
+
+    color:white;
+
+    background:#d9534f;
+
+    border-radius:10px;
+}
+}

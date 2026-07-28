@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palworld Craft Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- アプリ全体を中央に配置するコンテナ -->
+    <div class="container">
+        <h1>Palworld Craft Calculator</h1>
+        <div class="card">
+            <h2>作るもの</h2>
+            <!-- JavaScript がクラフト対象の入力行を追加する領域 -->
+            <div id="craftList"></div>
+
+            <button id="calculate" class="success">
+                計算する
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>📚 アイテム一覧</h2>
+
+            <div class="itemListContainer">
+                <div id="itemListView"></div>
+            </div>
+
+
+
+            <div class="itemSearchArea">
+                <input id="itemFilter" type="text" placeholder="アイテム名を入力">
+            </div>
+
+
+        </div>
+
+
+        
+        <div id="recipeSettings"></div>
+
+        
+        <details class="card" id="excludeCard">
+            <summary>📦 素材の除外</summary>
+
+            <div id="excludeSettings"></div>
+
+        </details>
+
+        <div class="card">
+            <h2>📦 所持素材</h2>
+            <p class="small">
+                中間素材・最終素材どちらも入力できます。
+            </p>
+            <!-- 計算に必要な素材の所持数入力欄 -->
+            <div id="ownedMaterials"></div>
+            <button id="saveOwned" class="primary">
+                💾 所持素材を保存
+            </button>
+        </div>
+        <div class="card">
+            <h2>🌳 クラフトツリー</h2>
+            <!-- 作成アイテムを素材まで展開したツリー -->
+            <div id="treeResult" class="tree"></div>
+        </div>
+        <div class="card">
+            <h2>📦 中間素材</h2>
+            <!-- 途中でクラフトする素材の集計結果 -->
+            <div id="middleResult"></div>
+        </div>
+        <div class="card">
+            <h2>⛏ 最終素材</h2>
+            <!-- 最後に集める基本素材の集計結果 -->
+            <div id="finalResult"></div>
+        </div>
+    </div>
+    <!-- レシピデータを先に読み込み、その後で画面操作の処理を読み込む -->
+    <script src="recipes/ammo.js"></script>
+    <script src="recipes/armor.js"></script>
+    <script src="recipes/buildings.js"></script>
+    <script src="recipes/facility.js"></script>
+    <script src="recipes/farm.js"></script>
+    <script src="recipes/food.js"></script>
+    <script src="recipes/materials.js"></script>
+    <script src="recipes/medicine.js"></script>
+    <script src="recipes/production.js"></script>
+    <script src="recipes/palgear.js"></script>
+    <script src="recipes/spheres.js"></script>
+    <script src="recipes/tools.js"></script>
+    <script src="recipes/weapons.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
